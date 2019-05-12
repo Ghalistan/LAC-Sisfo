@@ -1,7 +1,178 @@
-﻿
-@{
-    ViewData["Title"] = "Index";
+﻿@{
+    ViewData["Title"] = "Pendaftaran";
 }
 
-<h1>Index</h1>
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#Tes" role="tab" aria-controls="nav-home" aria-selected="true">Tes Bahasa</a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#Kursus" role="tab" aria-controls="nav-profile" aria-selected="false">Kursus Bahasa</a>
+    </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="Tes" role="tabpanel" aria-labelledby="nav-home-tab">
+        <form method="post">
+            <div class="container-fluid border border-primary rounded my-1">
+                <div class="form-group row m-2">
+                    <label for="tipePendaftar" class="col-form-label">Pilih Tipe Pendaftar</label>
+                    <div class="col-md-auto">
+                        <select class="form-control">
+                            <option>Mahasiswa</option>
+                        </select>
+                    </div>
 
+                    <label for="inputPendaftar" class="col-form-label">NIM/Nama Mahasiswa</label>
+                    <div class="col-md-auto">
+                        <input type="text" class="form-control" id="inputPendaftar" />
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid border border-primary rounded my-1">
+                <div class="form-group row m-2">
+                    <label for="pilihTes" class="col-form-label">Pilih Tes</label>
+                    <div class="col-md-auto">
+                        <select class="form-control" id="pilihTes">
+                            <option>ECCT</option>
+                            <option>EPrT</option>
+                        </select>
+                    </div>
+
+                    <label for="member" class="col-form-label">Member Status</label>
+                    <div class="col-md-auto">
+                        <select class="form-control" id="member">
+                            <option>Civitas</option>
+                        </select>
+                    </div>
+
+                    <label for="date" class="col-form-label">Tanggal Tes</label>
+                    <div class="col-md-auto">
+                        <input type="date" class="form-control" id="date" />
+                    </div>
+
+                    <label for="time" class="col-form-label">Waktu Tes</label>
+                    <div class="col-md-auto">
+                        <select class="form-control" id="time">
+                            <option>08:00</option>
+                            <option>10:30</option>
+                            <option>13:30</option>
+                        </select>
+                    </div>
+
+                    <label for="ruangan" class="col-form-label">Ruangan</label>
+                    <div class="col-md-auto">
+                        <select class="form-control" id="ruangan">
+                            <option>A101</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="btn btn-outline-primary">Check Quota</button>
+                </div>
+            </div>
+            <div class="container-fluid border border-primary rounded my-1">
+                <div class="form-group row m-2">
+                    <label for="tujuan" class="col-form-label">Tujuan Tes</label>
+                    <div class="col-md-auto">
+                        <select class="form-control" id="tujuan">
+                            <option>Matakuliah (bhs. Inggris)</option>
+                            <option>Sidang</option>
+                            <option>Wisuda</option>
+                            <option>Lainnya</option>
+                        </select>
+                    </div>
+
+                    <label for="biaya" class="col-form-label">Biaya (Rp)</label>
+                    <div class="col-md-auto">
+                        <input type="text" class="form-control" id="biaya" disabled value="125.000" />
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid border border-primary rounded my-1">
+                <div class="form-group row m-2">
+                    <label for="total" class="col-form-label">Total Biaya Rp</label>
+                    <div class="col-md-auto">
+                        <input type="text" class="form-control" id="total" disabled value="125.000" />
+                    </div>
+
+                    <label for="bukti" class="col-form-label">Bukti Pembayaran</label>
+                    <div class="col-md-auto">
+                        <input type="file" class="form-control-file" id="bukti" />
+                        <small class="form-text text-muted">*file JPG (maks. 350kb)</small>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary my-2">Simpan</button>
+        </form>
+    </div>
+    <div class="tab-pane fade show" id="Kursus" role="tabpanel" aria-labelledby="nav-home-tab">
+        <form method="post">
+            <div class="container-fluid border border-primary rounded my-1">
+                <div class="form-group row m-2">
+                    <label for="tipePendaftar" class="col-form-label">Pilih Tipe Pendaftar</label>
+                    <div class="col-md-auto">
+                        <select class="form-control">
+                            <option>Mahasiswa</option>
+                        </select>
+                    </div>
+
+                    <label for="inputPendaftar" class="col-form-label">NIM/Nama Mahasiswa</label>
+                    <div class="col-md-auto">
+                        <input type="text" class="form-control" id="inputPendaftar" />
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid border border-primary rounded my-1">
+                <div class="form-group row m-2">
+                    <label for="namaKursus" class="col-form-label">Nama Kursus Bahasa</label>
+                    <div class="col-md-auto">
+                        <select class="form-control" id="namaKursus">
+                            <option>English Course</option>
+                            <option>Japanese Course</option>
+                            <option>Korean Course</option>
+                        </select>
+                    </div>
+
+                    <label for="level" class="col-form-label">Level Kursus</label>
+                    <div class="col-md-auto">
+                        <select class="form-control" id="level">
+                            <option>Intermediate</option>
+                            <option>Elementary</option>
+                            <option>Advanced</option>
+                        </select>
+                    </div>
+
+                    <label for="kelas">Kelas Kursus</label>
+                    <div class="col-md-auto">
+                        <select class="form-control" id="kelas">
+                            <option>Paket A</option>
+                            <option>Paket B</option>
+                            <option>Private</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid border border-primary rounded my-1">
+                <div class="form-group row m-2">
+                    <label for="biaya" class="col-form-label">Rp</label>
+                    <div class="col-md-auto">
+                        <input type="text" class="form-control" id="biaya" disabled value="5.000.000" />
+                    </div>
+
+                    <label for="status" class="col-form-label">Status Pembayaran</label>
+                    <div class="col-md-auto">
+                        <select class="form-control" id="status">
+                            <option selected></option>
+                            <option>Lunas</option>
+                            <option>Belum Lunas</option>
+                        </select>
+                    </div>
+
+                    <label for="payment" class="col-form-label">Bukti Pembayaran</label>
+                    <div class="col-md-auto">
+                        <input type="file" class="form-control-file" id="payment" />
+                        <small class="form-text text-muted">*file JPG (maks. 350kb)</small>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary my-2">Simpan</button>
+        </form>
+    </div>
+</div>

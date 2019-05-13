@@ -39,7 +39,6 @@ D:\Tugas\Sisfo\LaC\bin\Debug\netcoreapp2.2\LaC.dll
 D:\Tugas\Sisfo\LaC\bin\Debug\netcoreapp2.2\LaC.pdb
 D:\Tugas\Sisfo\LaC\bin\Debug\netcoreapp2.2\LaC.Views.dll
 D:\Tugas\Sisfo\LaC\bin\Debug\netcoreapp2.2\LaC.Views.pdb
-D:\Tugas\Sisfo\LaC\obj\Debug\netcoreapp2.2\LaC.csprojAssemblyReference.cache
 D:\Tugas\Sisfo\LaC\obj\Debug\netcoreapp2.2\LaC.csproj.CoreCompileInputs.cache
 D:\Tugas\Sisfo\LaC\obj\Debug\netcoreapp2.2\LaC.RazorAssemblyInfo.cache
 D:\Tugas\Sisfo\LaC\obj\Debug\netcoreapp2.2\LaC.RazorAssemblyInfo.cs
@@ -67,3 +66,4 @@ D:\Tugas\Sisfo\LaC\obj\Debug\netcoreapp2.2\LaC.dll
 D:\Tugas\Sisfo\LaC\obj\Debug\netcoreapp2.2\LaC.pdb
 D:\Tugas\Sisfo\LaC\obj\Debug\netcoreapp2.2\LaC.csproj.CopyComplete
 D:\Tugas\Sisfo\LaC\obj\Debug\netcoreapp2.2\Razor\Views\Pendaftaran\DataPendaftaran.g.cshtml.cs
+D:\Tugas\Sisfo\LaC\obj\Debug\netcoreapp2.2\LaC.csprojAssemblyReference.cache

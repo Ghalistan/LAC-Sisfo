@@ -1,78 +1,67 @@
-﻿@{
-    ViewData["Title"] = "Data Pendaftaran";
+﻿
+@{
+    ViewData["Title"] = "Pendaftaran";
 }
 @section CSS {
     <link rel="stylesheet" href="~/css/Pendaftaran/dataPendaftaran.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 }
 @section Scripts {
     <script src="~/js/Pendaftaran/dataPendaftaran.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 }
 @{
     var data = ViewBag.data;
 }
 
-<nav>
-    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#Tes" role="tab" aria-controls="nav-home" aria-selected="true">Tes Bahasa</a>
-        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#Kursus" role="tab" aria-controls="nav-profile" aria-selected="false">Kursus Bahasa</a>
-    </div>
-</nav>
-<div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="Tes" role="tabpanel" aria-labelledby="nav-home-tab">
-        <div class="container mt-3">
-            <input class="form-control my-2 col-md-2" id="myInput" type="text" placeholder="Search..">
-            <table class="table table-striped table-bordered table-sm">
-                <thead>
+<div class="container mt-3">
+    <table class="table table-striped table-bordered table-sm" id="testbahasa">
+        <thead>
+            <tr>
+                <th>Tanggal Tes</th>
+                <th>Tanggal Daftar</th>
+                <th>Tipe Tes</th>
+                <th>Nama</th>
+                <th>NIK / NIM</th>
+                <th>Tipe Peserta</th>
+                <th>Ruangan</th>
+                <th>Status Pembayaran</th>
+                <th>Status Persetujuan</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            @foreach (var d in data)
+            {
+                @if (d.Jenis_History == "test")
+                {
                     <tr>
-                        <th>Tanggal Tes</th>
-                        <th>Tanggal Daftar</th>
-                        <th>Tipe Tes</th>
-                        <th>Nama</th>
-                        <th>NIK / NIM</th>
-                        <th>Tipe Peserta</th>
-                        <th>Ruangan</th>
-                        <th>Status Pembayaran</th>
-                        <th>Status Persetujuan</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody id="myTable">
-                    @foreach (var d in data)
-                    {
-                        @if (d.Jenis_History == "test")
+                        <td>@d.Tgl_Test</td>
+                        <td>@d.Tgl_Daftar</td>
+                        <td>@d.Tipe_Test</td>
+                        <td>@d.Nama</td>
+                        <td>@d.NIM</td>
+                        <td>@d.Tipe_Peserta</td>
+                        <td>@d.Ruangan</td>
+                        @if (d.Status_Pembayaran)
                         {
-                            <tr>
-                                <td>@d.Tgl_Test</td>
-                                <td>@d.Tgl_Daftar</td>
-                                <td>@d.Tipe_Test</td>
-                                <td>@d.Nama</td>
-                                <td>@d.NIM</td>
-                                <td>@d.Tipe_Peserta</td>
-                                <td>@d.Ruangan</td>
-                                @if (d.Status_Pembayaran)
-                                {
-                                    <td>Lunas</td>
-                                }
-                                else
-                                {
-                                    <td>Belum Lunas</td>
-                                }
-
-                                @if (d.Status_Persetujuan)
-                                {
-                                    <td style="text-align: center;"><i class="fas fa-check-circle"></i></td>
-                                }
-                                else
-                                {
-                                    <td style="text-align: center;"><i class="far fa-times-circle"></i></td>
-                                }
-                                <td>bla bla</td>
-                            </tr>
+                            <td>Lunas</td>
                         }
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="tab-pane fade show" id="Kursus" role="tabpanel" aria-labelledby="nav-home-tab"></div>
-    </div>
+                        else
+                        {
+                            <td>Belum Lunas</td>
+                        }
+
+                        @if (d.Status_Persetujuan)
+                        {
+                            <td style="text-align: center;"><i class="fas fa-check-circle"></i></td>
+                        }
+                        else
+                        {
+                            <td style="text-align: center;"><i class="far fa-times-circle"></i></td>
+                        }
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,235 @@
+﻿@{
+    ViewData["Title"] = "Data Pendaftaran";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@section CSS {
+    <link rel="stylesheet" href="~/css/Pendaftaran/dataPendaftaran.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+}
+@section Scripts {
+    <script src="~/js/Pendaftaran/dataPendaftaran.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+}
+@{
+    var data = ViewBag.data;
+}
+
+<div class="container mt-3">
+    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#newnilai">Tambahkan Nilai Baru</button>
+    <div class="modal fade" id="newnilai" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <form asp-controller="Admin" asp-action="addNilai" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Tambahkan Nilai Baru</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <label for="nim" class="col-form-label">NIM</label>
+                                <input type="text" class="form-control" id="nim" name="nim"/>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="nama" class="col-form-label">Nama</label>
+                                <input type="text" class="form-control" id="nama" name="nama"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-3">
+                                <label for="tipetes" class="col-form-label">Tipe Tes</label>
+                                <select class="form-control" id="tipetes" name="tipetes">
+                                    <option values="ECCT">ECCT</option>
+                                    <option values="EPrT">EPrT</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="tipeserta" class="col-form-label">Tipe Peserta</label>
+                                <select class="form-control" id="tipepeserta" name="tipepeserta">
+                                    <option values="Mahasiswa">Mahasiswa</option>
+                                    <option values="Dosen">Dosen</option>
+                                    <option values="Lainnya">Lainnya</option>
+                                </select>
+                            </div>
+                            <div class="col-md-5">
+                                <label for="tanggal">Tanggal Tes</label>
+                                <input type="date" class="form-control" id="tanggal" name="tanggal"/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-3">
+                                <label for="jenis" class="col-form-label">Jenis Nilai</label>
+                                <select class="form-control" id="jenis" name="jenis">
+                                    <option values="Internal">Internal</option>
+                                    <option values="Eksternal">Eksternal</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="ruangan" class="col-form-label">Ruangan</label>
+                                <select class="form-control" id="ruangan" name="ruangan">
+                                    <option values="A101">A101</option>
+                                    <option values="A102">A102</option>
+                                    <option values="A103">A103</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="total" class="col-form-label">Nilai Total</label>
+                                <input type="text" class="form-control" id="total" name="total"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-outline-primary">Save Changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <table class="table table-striped table-bordered table-sm" id="testbahasa">
+        <thead>
+            <tr>
+                <th>Tanggal Tes</th>
+                <th>Tipe Tes</th>
+                <th>NIM</th>
+                <th>Nama</th>
+                <th>Tipe Peserta</th>
+                <th>Ruangan</th>
+                <th>Total Nilai</th>
+                <th>Jenis Nilai</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            @foreach (var d in data)
+            {
+                <tr>
+                    <td>@d.Tgl_Test</td>
+                    <td>@d.Tipe_Test</td>
+                    <td>@d.NIM</td>
+                    <td>@d.Nama</td>
+                    <td>@d.Tipe_Peserta</td>
+                    <td>@d.Ruangan</td>
+                    <td>@d.Nilai_Total</td>
+                    <td>@d.Jenis_Nilai</td>
+                    <td>
+                        <a data-toggle="modal" data-target="#modal_@d.Id"><i class="far fa-edit"></i></a>
+                        <a data-toggle="modal" data-target="#del_@d.Id"><i class="far fa-trash-alt"></i></a>
+                        <div class="modal fade" id="modal_@d.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <form asp-controller="Admin" asp-action="editNilai" method="post">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Edit - @d.Nama</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <input type="hidden" value="@d.Id" id="dataid" name="dataid" readonly />
+                                        <div class="modal-body">
+                                            <div class="form-group row">
+                                                <div class="col-md-6">
+                                                    <label for="nim" class="col-form-label">NIM</label>
+                                                    <input type="text" class="form-control" id="nim" value="@d.NIM" readonly />
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="nama" class="col-form-label">Nama</label>
+                                                    <input type="text" class="form-control" id="nama" value="@d.Nama" readonly />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-md-3">
+                                                    <label for="tipetes" class="col-form-label">Tipe Tes</label>
+                                                    <input type="text" class="form-control" id="tipetes" value="@d.Tipe_Test" readonly />
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="tipeserta" class="col-form-label">Tipe Peserta</label>
+                                                    <input type="text" class="form-control" id="tipeserta" value="@d.Tipe_Peserta" readonly />
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <label for="tanggal">Tanggal Tes</label>
+                                                    <input type="text" class="form-control" id="tanggal" value="@d.Tgl_Test" readonly />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-md-3">
+                                                    <label for="jenis" class="col-form-label">Jenis Nilai</label>
+                                                    <input type="text" class="form-control" id="jenis" value="@d.Jenis_Nilai" readonly />
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <label for="total" class="col-form-label">Nilai Total</label>
+                                                    <input type="text" class="form-control" id="total" name="total" value="@d.Nilai_Total" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-outline-primary">Save Changes</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="del_@d.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <form asp-controller="Admin" asp-action="deleteNilai">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Anda yakin ingin menghapus data ini ?</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <input type="hidden" value="@d.Id" name="iduser" readonly />
+                                        <div class="modal-body">
+                                            <div class="form-group row">
+                                                <div class="col-md-6">
+                                                    <label for="nim" class="col-form-label">NIM</label>
+                                                    <input type="text" class="form-control" id="nim" value="@d.NIM" readonly />
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label for="nama" class="col-form-label">Nama</label>
+                                                    <input type="text" class="form-control" id="nama" value="@d.Nama" readonly />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-md-3">
+                                                    <label for="tipetes" class="col-form-label">Tipe Tes</label>
+                                                    <input type="text" class="form-control" id="tipetes" value="@d.Tipe_Test" readonly />
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label for="tipeserta" class="col-form-label">Tipe Peserta</label>
+                                                    <input type="text" class="form-control" id="tipeserta" value="@d.Tipe_Peserta" readonly />
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <label for="tanggal">Tanggal Tes</label>
+                                                    <input type="text" class="form-control" id="tanggal" value="@d.Tgl_Test" readonly />
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-md-3">
+                                                    <label for="jenis" class="col-form-label">Jenis Nilai</label>
+                                                    <input type="text" class="form-control" id="jenis" value="@d.Jenis_Nilai" readonly />
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <label for="total" class="col-form-label">Nilai Total</label>
+                                                    <input type="text" class="form-control" id="total" value="@d.Nilai_Total" readonly />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-outline-danger">Hapus Data</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

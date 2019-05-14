@@ -15,52 +15,59 @@
                 <div class="form-group row m-2">
                     <label for="tipePendaftar" class="col-form-label">Pilih Tipe Pendaftar</label>
                     <div class="col-md-auto">
-                        <select class="form-control">
-                            <option>Mahasiswa</option>
+                        <select class="form-control" id="tipePendaftar" name="tipePendaftar">
+                            <option value="Mahasiswa">Mahasiswa</option>
                         </select>
                     </div>
 
-                    <label for="inputPendaftar" class="col-form-label">NIM/Nama Mahasiswa</label>
+                    <label for="nim" class="col-form-label">NIM Mahasiswa</label>
                     <div class="col-md-auto">
-                        <input type="text" class="form-control" id="inputPendaftar" />
+                        <input type="text" class="form-control" id="nim" name="nim" required />
+                    </div>
+
+                    <label for="nama" class="col-form-label">Nama Mahasiswa</label>
+                    <div class="col-md-auto">
+                        <input type="text" class="form-control" id="nama" name="nama" required />
                     </div>
                 </div>
             </div>
             <div class="container-fluid border border-primary rounded my-1">
                 <div class="form-group row m-2">
-                    <label for="pilihTes" class="col-form-label">Pilih Tes</label>
+                    <label for="tipetes" class="col-form-label">Pilih Tes</label>
                     <div class="col-md-auto">
-                        <select class="form-control" id="pilihTes">
-                            <option>ECCT</option>
-                            <option>EPrT</option>
+                        <select class="form-control" id="tipetes" name="tipetes">
+                            <option value="ECCT">ECCT</option>
+                            <option value="EPrT">EPrT</option>
                         </select>
                     </div>
 
                     <label for="member" class="col-form-label">Member Status</label>
                     <div class="col-md-auto">
-                        <select class="form-control" id="member">
-                            <option>Civitas</option>
+                        <select class="form-control" id="member" name="member">
+                            <option value="Civitas">Civitas</option>
                         </select>
                     </div>
 
                     <label for="date" class="col-form-label">Tanggal Tes</label>
                     <div class="col-md-auto">
-                        <input type="date" class="form-control" id="date" />
+                        <input type="date" class="form-control" id="date" name="date" required/>
                     </div>
 
-                    <label for="time" class="col-form-label">Waktu Tes</label>
+                    <label for="waktutes" class="col-form-label">Waktu Tes</label>
                     <div class="col-md-auto">
-                        <select class="form-control" id="time">
-                            <option>08:00</option>
-                            <option>10:30</option>
-                            <option>13:30</option>
+                        <select class="form-control" id="waktutes" name="waktutes">
+                            <option value="08:00">08:00</option>
+                            <option value="10:30">10:30</option>
+                            <option value="13:30">13:30</option>
                         </select>
                     </div>
 
                     <label for="ruangan" class="col-form-label">Ruangan</label>
                     <div class="col-md-auto">
-                        <select class="form-control" id="ruangan">
-                            <option>A101</option>
+                        <select class="form-control" id="ruangan" name="ruangan">
+                            <option value="A101">A101</option>
+                            <option value="A102">A102</option>
+                            <option value="A103">A103</option>
                         </select>
                     </div>
 
@@ -71,17 +78,17 @@
                 <div class="form-group row m-2">
                     <label for="tujuan" class="col-form-label">Tujuan Tes</label>
                     <div class="col-md-auto">
-                        <select class="form-control" id="tujuan">
-                            <option>Matakuliah (bhs. Inggris)</option>
-                            <option>Sidang</option>
-                            <option>Wisuda</option>
-                            <option>Lainnya</option>
+                        <select class="form-control" id="tujuan" name="tujuan">
+                            <option value="b.ing">Matakuliah (bhs. Inggris)</option>
+                            <option value="Sidang">Sidang</option>
+                            <option value="Wisuda">Wisuda</option>
+                            <option value="Lainnya">Lainnya</option>
                         </select>
                     </div>
 
                     <label for="biaya" class="col-form-label">Biaya (Rp)</label>
                     <div class="col-md-auto">
-                        <input type="text" class="form-control" id="biaya" disabled value="125.000" />
+                        <input type="text" class="form-control" id="biaya" name="biaya" readonly value="125.000" required/>
                     </div>
                 </div>
             </div>
@@ -89,12 +96,12 @@
                 <div class="form-group row m-2">
                     <label for="total" class="col-form-label">Total Biaya Rp</label>
                     <div class="col-md-auto">
-                        <input type="text" class="form-control" id="total" disabled value="125.000" />
+                        <input type="text" class="form-control" id="total" name="total" readonly value="125.000" required/>
                     </div>
 
                     <label for="bukti" class="col-form-label">Bukti Pembayaran</label>
                     <div class="col-md-auto">
-                        <input type="file" class="form-control-file" id="bukti" />
+                        <input type="file" class="form-control-file" id="bukti" name="bukti"/>
                         <small class="form-text text-muted">*file JPG (maks. 350kb)</small>
                     </div>
                 </div>
@@ -103,71 +110,98 @@
         </form>
     </div>
     <div class="tab-pane fade show" id="Kursus" role="tabpanel" aria-labelledby="nav-home-tab">
-        <form method="post">
+        <form asp-controller="Pendaftaran" asp-action="regisKursus" method="post">
             <div class="container-fluid border border-primary rounded my-1">
                 <div class="form-group row m-2">
                     <label for="tipePendaftar" class="col-form-label">Pilih Tipe Pendaftar</label>
                     <div class="col-md-auto">
-                        <select class="form-control">
-                            <option>Mahasiswa</option>
+                        <select class="form-control" id="tipePendaftar" name="tipePendaftar">
+                            <option value="Mahasiswa">Mahasiswa</option>
                         </select>
                     </div>
 
-                    <label for="inputPendaftar" class="col-form-label">NIM/Nama Mahasiswa</label>
+                    <label for="nim" class="col-form-label">NIM Mahasiswa</label>
                     <div class="col-md-auto">
-                        <input type="text" class="form-control" id="inputPendaftar" />
+                        <input type="text" class="form-control" id="nim" name="nim" required />
+                    </div>
+
+                    <label for="nama" class="col-form-label">Nama Mahasiswa</label>
+                    <div class="col-md-auto">
+                        <input type="text" class="form-control" id="nama" name="nama" required />
                     </div>
                 </div>
             </div>
             <div class="container-fluid border border-primary rounded my-1">
                 <div class="form-group row m-2">
-                    <label for="namaKursus" class="col-form-label">Nama Kursus Bahasa</label>
+                    <label for="tipetes" class="col-form-label">Pilih Tes</label>
                     <div class="col-md-auto">
-                        <select class="form-control" id="namaKursus">
-                            <option>English Course</option>
-                            <option>Japanese Course</option>
-                            <option>Korean Course</option>
+                        <select class="form-control" id="tipetes" name="tipetes">
+                            <option value="ECCT">ECCT</option>
+                            <option value="EPrT">EPrT</option>
                         </select>
                     </div>
 
-                    <label for="level" class="col-form-label">Level Kursus</label>
+                    <label for="member" class="col-form-label">Member Status</label>
                     <div class="col-md-auto">
-                        <select class="form-control" id="level">
-                            <option>Intermediate</option>
-                            <option>Elementary</option>
-                            <option>Advanced</option>
+                        <select class="form-control" id="member" name="member">
+                            <option value="Civitas">Civitas</option>
                         </select>
                     </div>
 
-                    <label for="kelas">Kelas Kursus</label>
+                    <label for="date" class="col-form-label">Tanggal Tes</label>
                     <div class="col-md-auto">
-                        <select class="form-control" id="kelas">
-                            <option>Paket A</option>
-                            <option>Paket B</option>
-                            <option>Private</option>
+                        <input type="date" class="form-control" id="date" name="date" required />
+                    </div>
+
+                    <label for="waktutes" class="col-form-label">Waktu Tes</label>
+                    <div class="col-md-auto">
+                        <select class="form-control" id="waktutes" name="waktutes">
+                            <option value="08:00">08:00</option>
+                            <option value="10:30">10:30</option>
+                            <option value="13:30">13:30</option>
                         </select>
+                    </div>
+
+                    <label for="ruangan" class="col-form-label">Ruangan</label>
+                    <div class="col-md-auto">
+                        <select class="form-control" id="ruangan" name="ruangan">
+                            <option value="A101">A101</option>
+                            <option value="A102">A102</option>
+                            <option value="A103">A103</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="btn btn-outline-primary">Check Quota</button>
+                </div>
+            </div>
+            <div class="container-fluid border border-primary rounded my-1">
+                <div class="form-group row m-2">
+                    <label for="tujuan" class="col-form-label">Tujuan Tes</label>
+                    <div class="col-md-auto">
+                        <select class="form-control" id="tujuan" name="tujuan">
+                            <option value="b.ing">Matakuliah (bhs. Inggris)</option>
+                            <option value="Sidang">Sidang</option>
+                            <option value="Wisuda">Wisuda</option>
+                            <option value="Lainnya">Lainnya</option>
+                        </select>
+                    </div>
+
+                    <label for="biaya" class="col-form-label">Biaya (Rp)</label>
+                    <div class="col-md-auto">
+                        <input type="text" class="form-control" id="biaya" name="biaya" readonly value="125.000" required />
                     </div>
                 </div>
             </div>
             <div class="container-fluid border border-primary rounded my-1">
                 <div class="form-group row m-2">
-                    <label for="biaya" class="col-form-label">Rp</label>
+                    <label for="total" class="col-form-label">Total Biaya Rp</label>
                     <div class="col-md-auto">
-                        <input type="text" class="form-control" id="biaya" disabled value="5.000.000" />
+                        <input type="text" class="form-control" id="total" name="total" readonly value="125.000" required />
                     </div>
 
-                    <label for="status" class="col-form-label">Status Pembayaran</label>
+                    <label for="bukti" class="col-form-label">Bukti Pembayaran</label>
                     <div class="col-md-auto">
-                        <select class="form-control" id="status">
-                            <option selected></option>
-                            <option>Lunas</option>
-                            <option>Belum Lunas</option>
-                        </select>
-                    </div>
-
-                    <label for="payment" class="col-form-label">Bukti Pembayaran</label>
-                    <div class="col-md-auto">
-                        <input type="file" class="form-control-file" id="payment" />
+                        <input type="file" class="form-control-file" id="bukti" name="bukti" />
                         <small class="form-text text-muted">*file JPG (maks. 350kb)</small>
                     </div>
                 </div>

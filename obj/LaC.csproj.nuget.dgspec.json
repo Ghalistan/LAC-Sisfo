@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Tugas\\Sisfo\\LaC\\LaC.csproj": {}
+    "C:\\Users\\Zherantova\\Documents\\Sisfo\\LAC-Sisfo\\LaC.csproj": {}
   },
   "projects": {
-    "D:\\Tugas\\Sisfo\\LaC\\LaC.csproj": {
+    "C:\\Users\\Zherantova\\Documents\\Sisfo\\LAC-Sisfo\\LaC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Tugas\\Sisfo\\LaC\\LaC.csproj",
+        "projectUniqueName": "C:\\Users\\Zherantova\\Documents\\Sisfo\\LAC-Sisfo\\LaC.csproj",
         "projectName": "LaC",
-        "projectPath": "D:\\Tugas\\Sisfo\\LaC\\LaC.csproj",
-        "packagesPath": "C:\\Users\\Ghalistan\\.nuget\\packages\\",
-        "outputPath": "D:\\Tugas\\Sisfo\\LaC\\obj\\",
+        "projectPath": "C:\\Users\\Zherantova\\Documents\\Sisfo\\LAC-Sisfo\\LaC.csproj",
+        "packagesPath": "C:\\Users\\Zherantova\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Zherantova\\Documents\\Sisfo\\LAC-Sisfo\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Ghalistan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Zherantova\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

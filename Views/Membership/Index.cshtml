@@ -3,5 +3,29 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
+<div class="container-fluid">
+    <span>Annual Member Registration</span>
+    <form method="post">
+        <div class="container-fluid border border-primary rounded my-1 py-2">
+            <div class="form-group row m-2">
+                <label for="payment" class="col-form-label w-25">Pilih Tipe Pendaftar</label>
+                <div class="col-md-auto">
+                    <input type="text" class="form-control" id="payment" />
+                </div>
+            </div>
+            <div class="form-group row m-2">
+                <label for="Catatan" class="col-form-label w-25">NIM/Nama Mahasiswa</label>
+                <div class="col-md-auto">
+                    <textarea class="form-control" id="Catatan" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="form-group row m-2">
+                <label for="regis" class="col-form-label w-25">Registration Payment Proof</label>
+                <div class="col-md-auto">
+                    <input type="file" class="form-control-file" id="regis" />
+                </div>
+            </div>
+            <button class="btn btn-outline-primary">Register Annual Member</button>
+        </div>
+    </form>
+</div>

@@ -1,6 +1,8 @@
-﻿@{
-    ViewData["Title"] = "Nilai Tes Bahasa";
+﻿
+@{
+    ViewData["Title"] = "Input Nilai Dari Instansi Luar";
 }
+
 @section CSS {
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 }
@@ -8,7 +10,7 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     <script src="~/js/Nilai/DataTable.js"></script>
 }
-@{ 
+@{
     var data = ViewBag.data;
 }
 
@@ -28,7 +30,7 @@
         <tbody id="myTable">
             @foreach (var d in data)
             {
-                @if (d.Jenis_Nilai == "Internal")
+                @if (d.Jenis_Nilai == "Eksternal")
                 {
                     <tr>
                         <td>@d.Tgl_Test</td>
@@ -44,3 +46,4 @@
         </tbody>
     </table>
 </div>
+

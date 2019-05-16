@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "";
+}
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Login</title>
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <link href="~/css/Login/Index.css" rel="stylesheet" />
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+                <!-- Tabs Titles -->
+                <!-- Icon -->
+                <div class="fadeIn first">
+                    <h3 class="my-3">Login Menggunakan NIM</h3>
+                </div>
+
+                <!-- Login Form -->
+                <form asp-controller="Login" asp-action="GetLogin" method="post">
+                    <input type="password" id="login" class="fadeIn second" name="login" placeholder="Masukkan NIM...">
+                    <input type="submit" class="fadeIn fourth" value="Log In">
+                </form>
+
+                <!-- Remind Passowrd -->
+                <div id="formFooter">
+                    <a class="underlineHover" href="#">Forgot Password?</a>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>

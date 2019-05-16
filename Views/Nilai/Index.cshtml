@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
     ViewData["Title"] = "Nilai Tes Bahasa";
 }
 @section CSS {
@@ -8,7 +10,7 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     <script src="~/js/Nilai/DataTable.js"></script>
 }
-@{ 
+@{
     var data = ViewBag.data;
 }
 
@@ -28,7 +30,7 @@
         <tbody id="myTable">
             @foreach (var d in data)
             {
-                @if (d.Jenis_Nilai == "Internal")
+                @if (d.Jenis_Nilai == "Internal" && d.Nama == HttpContextAccessor.HttpContext.Session.GetString("Nama"))
                 {
                     <tr>
                         <td>@d.Tgl_Test</td>

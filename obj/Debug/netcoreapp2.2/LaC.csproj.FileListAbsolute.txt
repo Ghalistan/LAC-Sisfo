@@ -108,3 +108,10 @@ C:\Users\Zherantova\Documents\Sisfo\LAC-Sisfo\obj\Debug\netcoreapp2.2\Razor\View
 C:\Users\Zherantova\Documents\Sisfo\LAC-Sisfo\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Pendaftaran.g.cshtml.cs
 C:\Users\Zherantova\Documents\Sisfo\LAC-Sisfo\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Nilai.g.cshtml.cs
 C:\Users\Zherantova\Documents\Sisfo\LAC-Sisfo\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Keanggotaan.g.cshtml.cs
+D:\Tugas\Sisfo\LaC\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Index.g.cshtml.cs
+D:\Tugas\Sisfo\LaC\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Keanggotaan.g.cshtml.cs
+D:\Tugas\Sisfo\LaC\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Nilai.g.cshtml.cs
+D:\Tugas\Sisfo\LaC\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Pendaftaran.g.cshtml.cs
+D:\Tugas\Sisfo\LaC\obj\Debug\netcoreapp2.2\Razor\Views\Nilai\InstansiLuar.g.cshtml.cs
+D:\Tugas\Sisfo\LaC\obj\Debug\netcoreapp2.2\Razor\Views\Shared\AdminLayout.g.cshtml.cs
+D:\Tugas\Sisfo\LaC\obj\Debug\netcoreapp2.2\Razor\Views\Login\Index.g.cshtml.cs
